@@ -36,6 +36,7 @@ varss <- c("delrate", "CENTER", "CUML", "MEDAGE", "OVER65", "UNEMRT", "minpct",
 
 # Creates an empty data fram with two columns called "Variable" and "Mean"
 table.1 <- data.frame(Variable = character(), Mean = character())
+myData <- myData %>% filter(MINOF3==1 & L11==1)
 # Loop that goes through the vector varss and calculates mean for each variable and add to table.1
 for(i in 1:length(varss)){
   mean <- weighted.mean(myData[[varss[i]]], w = myData$COUNT) %>% round(3)
